@@ -10,8 +10,8 @@ public class vectorCircle extends PApplet {
         PApplet.main("vectorCircle");
     }
 
-    PVector circle = new PVector(250,250);
-    PVector circle2 = new PVector(250,250);
+    PVector circle = new PVector(500,500);
+    PVector circle2 = new PVector(500,500);
 public void settings(){
 
         size(500,500);
@@ -29,15 +29,18 @@ public void settings(){
     @Override
     public void draw() {
 imageMode(3);
-clear();
+        circle.setMag(50);
+        circle2.setMag(50);
+        circle.rotate((float)0.0072);
+        circle2.rotate((float)0.05);
+
         pushMatrix();
         translate(250,250);
     ellipse(circle.x,circle.y,20,20);
-    ellipse(circle.x,0,20,20);
-        ellipse(0,circle.y,20,20);
-popMatrix();
 
-        circle.setMag(50);
-        circle.rotate((float)0.0069);
+        translate(circle.x,circle.y);
+        ellipse(circle2.x,circle2.y,5,5);
+        popMatrix();
+
     }
 }
